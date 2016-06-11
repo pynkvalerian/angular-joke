@@ -11,8 +11,24 @@ export class HelloWorldAppComponent {
   title = 'hello-world!';
 
   yourName: string = '';
+  customer: ICustomer = {
+    name: 'Jane',
+    age: 30,
+    isSingle: true,
+    gender: 'F'
+  };
 
   sayHello(name: string) {
+    console.log(this.customer.name);
     window.alert('Hello ' + name + '!');
   }
+}
+
+// implementing strong type for typescript
+export interface ICustomer {
+  name: string;
+  age: number;
+  isSingle: boolean;
+  // to define optional type, ie isSingle?: boolean
+  gender: string;
 }
