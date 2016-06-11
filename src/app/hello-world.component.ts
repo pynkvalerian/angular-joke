@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { DashboardComponent } from './+dashboard';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { DashboardComponent } from './+dashboard';
+import { CategoriesComponent } from './+categories';
+import { CustomiseComponent } from './+customise';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +14,9 @@ import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 })
 
 @Routes([
-  {path: '/dashboard', component: DashboardComponent}
+  {path: '/dashboard', component: DashboardComponent},
+  {path: '/categories', component: CategoriesComponent},
+  {path: '/customise', component: CustomiseComponent}
 ])
 
 export class HelloWorldAppComponent {
