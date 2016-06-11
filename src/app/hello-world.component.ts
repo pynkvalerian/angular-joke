@@ -8,10 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class HelloWorldAppComponent {
-  title = 'hello-world!';
+  public title = 'hello-world!';
 
-  yourName: string = '';
-  customer: ICustomer = {
+  private yourName: string = '';
+  static abc; // dont need to initialize class, and it can be called
+
+  // protected : child can access protected methods from parent
+  protected customer: ICustomer = {
     name: 'Jane',
     age: 30,
     isSingle: true,
