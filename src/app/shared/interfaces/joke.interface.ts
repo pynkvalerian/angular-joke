@@ -1,4 +1,5 @@
 export interface IJoke {
-  id: string;
+  id: number;
   joke: string;
+  categories?: string[];
 }

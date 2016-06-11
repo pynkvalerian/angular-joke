@@ -1,5 +1,9 @@
 <h2>Joke of the Day</h2>
 
-<p>
+<p *ngIf="item">
   {{ item.joke }}
+</p>
+
+<p>
+  {{ item?.joke }}
 </p>

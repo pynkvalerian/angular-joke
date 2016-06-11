@@ -21,8 +21,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     // call server api to get joke
-    // todo: move to service
-    this.item = this.jokeSvc.getJoke();
+    // this.item = this.jokeSvc.getJoke(); // this returns Observable, not what we want
+    this.jokeSvc.getJoke().subscribe(
+        success => {
+          this.item = success;
+        }
+      );
   }
 
 }
