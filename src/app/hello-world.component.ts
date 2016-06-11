@@ -10,11 +10,9 @@ import { Component } from '@angular/core';
 export class HelloWorldAppComponent {
   public title = 'hello-world!';
 
-  private yourName: string = '';
-  static abc; // dont need to initialize class, and it can be called
+  yourName: string = '';
 
-  // protected : child can access protected methods from parent
-  protected customer: ICustomer = {
+  customer: ICustomer = {
     name: 'Jane',
     age: 30,
     isSingle: true,
@@ -24,6 +22,31 @@ export class HelloWorldAppComponent {
   sayHello(name: string) {
     console.log(this.customer.name);
     window.alert('Hello ' + name + '!');
+  };
+
+  newEmployee = new Employee();
+  childEMployee = new childEmployee();
+
+  init() {
+    this.employee.name
+    // can only access public name
+  };
+}
+
+export class Employee {
+  public name: string;
+  private age: number;
+  static company: string;
+  protected mySalary(): number {
+    return 10
+  }
+}
+
+export class childEmployee extends Employee {
+  constructor() {
+    super();
+    this.mySalary
+    // can call protected methods from parent class
   }
 }
 
