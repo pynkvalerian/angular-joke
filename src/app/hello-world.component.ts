@@ -1,60 +1,21 @@
 import { Component } from '@angular/core';
+import { DashboardComponent } from './+dashboard';
+import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 
 @Component({
   moduleId: module.id,
   selector: 'hello-world-app',
   templateUrl: 'hello-world.component.html',
-  styleUrls: ['hello-world.component.css']
+  styleUrls: ['hello-world.component.css'],
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ROUTER_PROVIDERS]
 })
 
+@Routes([
+  {path: '/dashboard', component: DashboardComponent}
+])
+
 export class HelloWorldAppComponent {
-  public title = 'hello-world!';
+  title = 'Angular Jokes';
 
-  yourName: string = '';
-
-  customer: ICustomer = {
-    name: 'Jane',
-    age: 30,
-    isSingle: true,
-    gender: 'F'
-  };
-
-  sayHello(name: string) {
-    console.log(this.customer.name);
-    window.alert('Hello ' + name + '!');
-  };
-
-  newEmployee = new Employee();
-  childEMployee = new childEmployee();
-
-  init() {
-    this.employee.name
-    // can only access public name
-  };
-}
-
-export class Employee {
-  public name: string;
-  private age: number;
-  static company: string;
-  protected mySalary(): number {
-    return 10
-  }
-}
-
-export class childEmployee extends Employee {
-  constructor() {
-    super();
-    this.mySalary
-    // can call protected methods from parent class
-  }
-}
-
-// implementing strong type for typescript
-export interface ICustomer {
-  name: string;
-  age: number;
-  isSingle: boolean;
-  // to define optional type, ie isSingle?: boolean
-  gender: string;
 }

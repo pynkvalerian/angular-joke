@@ -1,7 +1,4 @@
 <h1>Hello World</h1>
-
-<label>Name:</label>
-<input type="text" [(ngModel)]="yourName">
-<h1 *ngIf="yourName">Hello, {{yourName}}</h1>
-<h1 [hidden]="!yourName">Yo, {{yourName}}</h1>
-<button (click)="sayHello(yourName)">Say hello</button>
+<a [routerLink]="['/dashboard']">Dashboard</a>
+<!-- routerLink is an array because it can take in additional params -->
+<router-outlet></router-outlet>
