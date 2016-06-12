@@ -12,9 +12,30 @@ export class JokeService {
 
   constructor(private http: Http) {} // can use get/post/put/delete in http
 
-  public apiUrl = 'https://api.icndb.com/jokes/random';
+  public apiUrl = 'https://api.icndb.com/';
+
+  public getJokesByCategories(category: string) {
+    const apiUrl = this.apiUrl + 'jokes/random/5?limitTo=[' + category + ']'
+
+    return this.http
+      .get(apiUrl)
+      .map(response => response.json()) // result is returned in json format, so need to parse it
+      .map((jsonResult: IJokeFromApi) => jsonResult.value)
+      ;
+  }
+
+  public getCategories(): Observable<string[]> {
+    const apiUrl = this.apiUrl + 'categories';
+
+    return this.http
+      .get(apiUrl)
+      .map(response => response.json()) // result is returned in json format, so need to parse it
+      .map(jsonResult => jsonResult.value)
+      ;
+  }
 
   public getJoke(): Observable<IJoke> { //observable makes it async
+    const apiUrl = this.apiUrl + 'jokes/random';
     // todo: call http api
     // return {
     //   id: 1,
@@ -22,7 +43,7 @@ export class JokeService {
     // }
 
     return this.http
-      .get(this.apiUrl)
+      .get(apiUrl)
       .map(response => response.json()) // result is returned in json format, so need to parse it
       .map((jsonResult: IJokeFromApi) => jsonResult.value)
       ;

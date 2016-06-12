@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JokeService } from '../shared/services/index';
+import { IJoke } from '../shared/interfaces/index';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() {}
+  public categories: string[];
+  public jokeOfCategory: IJoke[];
+
+  constructor(private jokeSvc: JokeService) {}
 
   ngOnInit() {
+    this.jokeSvc.getCategories().subscribe(
+      success => {this.categories = success}
+    )
+  }
+
+  getJokesFromCategory(category: string) {
+    this.jokeSvc.getJokesByCategories(category).subscribe(
+      success => { this.jokeOfCategory = success }
+    )
   }
 
 }

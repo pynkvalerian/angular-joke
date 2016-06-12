@@ -1,3 +1,19 @@
 <p>
   categories works!
 </p>
+
+<!-- <pre>
+  {{ categories | json }}
+</pre> -->
+
+<p>
+  <span *ngFor="let category of categories">
+    <button (click)="getJokesFromCategory(category)">{{ category | uppercase }}</button>
+    <!-- pipe: it changes the way your DOM is displayed but not the DOM itself -->
+    <!-- ie {{ category | uppcase }} or {{ category | lowercase }} -->
+  </span>
+</p>
+
+<p *ngFor="let item of jokeOfCategory">
+  {{ item.joke }}
+</p>
